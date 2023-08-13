@@ -1,3 +1,4 @@
+import { Filterheader } from "../../Components/FilterHeader/FilterHeader";
 import { MovieCard } from "../../Components/MovieCard/MovieCard";
 import { useData } from "../../Context/dataContext";
 import "./Movies.css";
@@ -8,6 +9,7 @@ export const Movies = () => {
   } = useData();
   return (
     <div className="movies">
+      <Filterheader />
       <div>
         {movies?.map((movie) => (
           <MovieCard {...movie} />

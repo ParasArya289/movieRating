@@ -21,6 +21,10 @@ export const DataContextProvider = ({ children }) => {
     }
   }, [dataState]);
 
+  useEffect(() => {
+    dispatchData({ type: "GET_GENRES" });
+  }, [dataState.movies]);
+
   return (
     <dataContext.Provider value={{ dataState, dispatchData }}>
       {children}

@@ -1,33 +1,42 @@
-import "./Filterheader.css";
+import { useData } from "../../Context/dataContext";
+import "./FilterHeader.css";
 
-export const Filterheader = () =>{
-    return(
-        <header className="filterheader">
+export const Filterheader = () => {
+  const {
+    dataState: { genres },
+  } = useData();
+  const filterChangeHandler = (e) => {};
+  return (
+    <header className="filterheader">
       <select
-        value={filters.category}
-        name="category"
+        // value={filters.category}
+        name="genre"
         onChange={filterChangeHandler}
       >
         <option value="all">all</option>
-        {departments?.map((department) => (
-          <option value={department}>{department}</option>
+        {genres?.map((genre) => (
+          <option value={genre}>{genre}</option>
         ))}
       </select>
-
-      <label>
-        <input
-          type="checkbox"
-          checked={filters.lowStockItem}
-          name="lowStockItem"
-          onChange={filterChangeHandler}
-        />
-        Low Stock Items
-      </label>
-
-      <select value={filters.sort} name="sort" onChange={filterChangeHandler}>
-        <option value="name">Name</option>
-        <option value="price">Price</option>
-        <option value="stock">Stock</option>
+      <select
+        // value={filters.category}
+        name="releaseYear"
+        onChange={filterChangeHandler}
+      >
+        <option value="all">all</option>
+        {Array.from({ length: 33 }, (_, i) => i + 1990)?.map((year) => (
+          <option value={year}>{year}</option>
+        ))}
+      </select>
+      <select
+        // value={filters.category}
+        name="rating"
+        onChange={filterChangeHandler}
+      >
+        <option value="all">all</option>
+        {Array.from({ length: 10 }, (_, i) => i + i)?.map((rating) => (
+          <option value={rating}>{rating}</option>
+        ))}
       </select>
     </header>
   );

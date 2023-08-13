@@ -11,5 +11,10 @@ export const dataReducer = (state, action) => {
         ...state,
         ...action.payload,
       };
+    case "GET_GENRES":
+      return {
+        ...state,
+        genres: [...new Set(state.movies.flatMap(({ genre }) => genre))],
+      };
   }
 };
