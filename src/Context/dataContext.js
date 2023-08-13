@@ -1,10 +1,22 @@
-import { createContext, useContext, useEffect, useReducer } from "react";
+import {
+  createContext,
+  useContext,
+  useEffect,
+  useReducer,
+  useState,
+} from "react";
 import { dataReducer, initDataState } from "../Reducer/dataReducer";
 
 const dataContext = createContext();
 
 export const DataContextProvider = ({ children }) => {
   const [dataState, dispatchData] = useReducer(dataReducer, initDataState);
+
+  const [filters, setFilters] = useState({
+    genre: "all",
+    releaseYear: "all",
+    rating: "all",
+  });
 
   useEffect(() => {
     const retrievedState = localStorage.getItem("state");
@@ -26,7 +38,9 @@ export const DataContextProvider = ({ children }) => {
   }, [dataState.movies]);
 
   return (
-    <dataContext.Provider value={{ dataState, dispatchData }}>
+    <dataContext.Provider
+      value={{ dataState, dispatchData, filters, setFilters }}
+    >
       {children}
     </dataContext.Provider>
   );
