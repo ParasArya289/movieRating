@@ -1,0 +1,21 @@
+.singlemovie {
+  display: grid;
+  place-content: center;
+}
+.singlemovieWrapper {
+  background-color: var(--primary-color);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  max-height: 30rem;
+  border-radius: 6px;
+}
+.singlemovieWrapper > img {
+  aspect-ratio: 9/16;
+  border-radius: 6px;
+  height: 100%;
+}
+.singlemovieWrapper > div {
+  border-radius: 6px;
+  background-color: var(--primary-color);
+}
