@@ -8,7 +8,7 @@ export const MovieCard = ({ ...movie }) => {
     <div className="moviecard" onClick={() => navigate("/movies/" + movie.id)}>
       <img src={movie.imageURL} alt={movie.title} />
       <h4>{movie.title}</h4>
-      <p>{movie.summary}</p>
+      <p>{movie.summary.slice(0,60)+"..."}</p>
       <ActionButton movie={movie} />
     </div>
   );
