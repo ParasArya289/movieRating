@@ -1,13 +1,13 @@
 import { ActionButton } from "../ActionButton/ActionButton";
 import "./MovieCard.css";
 
-export const MovieCard = ({ title, genre, summary, imageURL }) => {
+export const MovieCard = ({ ...movie }) => {
   return (
     <div className="moviecard">
-      <img src={imageURL} alt={title} />
-      <h4>{title}</h4>
-      <p>{summary}</p>
-      <ActionButton />
+      <img src={movie.imageURL} alt={movie.title} />
+      <h4>{movie.title}</h4>
+      <p>{movie.summary}</p>
+      <ActionButton movie={movie} />
     </div>
   );
 };
