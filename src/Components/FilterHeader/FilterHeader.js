@@ -1,12 +1,14 @@
+import { useNavigate } from "react-router-dom";
 import { useData } from "../../Context/dataContext";
 import "./FilterHeader.css";
 
-export const Filterheader = () => {
+export const Filterheader = ({ title = "Movies" }) => {
   const {
     dataState: { genres },
     filters,
     setFilters,
   } = useData();
+  const navigate = useNavigate();
   const filterChangeHandler = (e) => {
     const { name, value } = e.target;
     setFilters((prev) => ({
@@ -16,7 +18,7 @@ export const Filterheader = () => {
   };
   return (
     <header className="filterheader">
-      <h3>Movies</h3>
+      <h3>{title}</h3>
       <select value={filters.genre} name="genre" onChange={filterChangeHandler}>
         <option value="all">Genre</option>
         {genres?.map((genre) => (
@@ -43,7 +45,7 @@ export const Filterheader = () => {
           <option value={rating}>{rating}</option>
         ))}
       </select>
-      <button>Add Movie</button>
+      <button onClick={() => navigate("/add-movie")}>Add Movie</button>
     </header>
   );
 };

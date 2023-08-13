@@ -19,6 +19,11 @@ export const dataReducer = (state, action) => {
         ...state,
         genres: [...new Set(state.movies.flatMap(({ genre }) => genre))],
       };
+    case "ADD_MOVIE":
+      return {
+        ...state,
+        movies: [...state.movies, action.payload],
+      };
     case "ADD_TO_STARRED":
       return {
         ...state,

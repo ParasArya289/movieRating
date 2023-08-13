@@ -8,12 +8,12 @@ export const filterData = (data, option) => {
   }
   if (releaseYear) {
     if (releaseYear !== "all") {
-      arr = arr.filter(({ year }) => year === +releaseYear);
+      arr = arr.filter(({ year }) => year == +releaseYear);
     }
   }
   if (rating) {
     if (rating !== "all") {
-      arr = arr.filter(({ rating: r }) => r === +rating);
+      arr = arr.filter(({ rating: r }) => r == +rating);
     }
   }
   if (searchQuery) {

@@ -15,16 +15,26 @@ export const ActionButton = ({ movie }) => {
     e.stopPropagation();
     dispatchData({ type: "ADD_TO_WATCHLIST", payload: movie });
   };
+  const removeFromStarredHandler = (e) => {
+    e.stopPropagation();
+    dispatchData({ type: "REMOVE_FROM_STARRED", payload: movie.id });
+  };
+  const removeFromWatchlistHandler = (e) => {
+    e.stopPropagation();
+    dispatchData({ type: "REMOVE_FROM_WATCHLIST", payload: movie.id });
+  };
 
   return (
     <div className="actionbutton">
       {starred?.some(({ id }) => movie.id === id) ? (
-        <button>Starred</button>
+        <button onClick={removeFromStarredHandler}>Starred</button>
       ) : (
         <button onClick={addToStarredHandler}>Star</button>
       )}
       {watchlist?.some(({ id }) => movie.id === id) ? (
-        <button>Added To Watchlist</button>
+        <button onClick={removeFromWatchlistHandler}>
+          Remove From Watchlist
+        </button>
       ) : (
         <button onClick={addToWatchlistHandler}> Add To Watchlist</button>
       )}
