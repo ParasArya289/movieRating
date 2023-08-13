@@ -8,6 +8,7 @@ export const Filterheader = () => {
   const filterChangeHandler = (e) => {};
   return (
     <header className="filterheader">
+      <h3>Movies</h3>
       <select
         // value={filters.category}
         name="genre"
@@ -24,7 +25,7 @@ export const Filterheader = () => {
         onChange={filterChangeHandler}
       >
         <option value="all">all</option>
-        {Array.from({ length: 33 }, (_, i) => i + 1990)?.map((year) => (
+        {Array.from({ length: 34 }, (_, i) => i + 1990)?.map((year) => (
           <option value={year}>{year}</option>
         ))}
       </select>
@@ -34,10 +35,11 @@ export const Filterheader = () => {
         onChange={filterChangeHandler}
       >
         <option value="all">all</option>
-        {Array.from({ length: 10 }, (_, i) => i + i)?.map((rating) => (
+        {Array.from({ length: 10 }, (_, i) => i + 1)?.map((rating) => (
           <option value={rating}>{rating}</option>
         ))}
       </select>
+      <button>Add Movie</button>
     </header>
   );
 };
