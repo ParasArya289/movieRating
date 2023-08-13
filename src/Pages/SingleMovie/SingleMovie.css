@@ -17,5 +17,6 @@
 }
 .singlemovieWrapper > div {
   border-radius: 6px;
+  min-width: 20rem;
   background-color: var(--primary-color);
 }

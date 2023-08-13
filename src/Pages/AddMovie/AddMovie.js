@@ -39,6 +39,8 @@ export const AddMovie = () => {
 
         <input name="year" type="number" placeholder="Release Year" required />
 
+        <input name="rating" type="number" placeholder="Rating" required />
+
         <input
           name="cast"
           type="text"
