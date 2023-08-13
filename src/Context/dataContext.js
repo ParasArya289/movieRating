@@ -16,6 +16,7 @@ export const DataContextProvider = ({ children }) => {
     genre: "all",
     releaseYear: "all",
     rating: "all",
+    searchQuery: "",
   });
 
   useEffect(() => {

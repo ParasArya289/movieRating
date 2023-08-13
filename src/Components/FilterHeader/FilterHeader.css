@@ -2,10 +2,12 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap:10px;
+  flex-wrap: wrap;
 }
 .filterheader > button,
 select {
-  padding: 10px;
+  padding: 0.6rem;
   border-radius: 4px;
 }
 .filterheader > button {
