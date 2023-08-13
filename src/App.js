@@ -1,9 +1,19 @@
-import './App.css';
+import { Route, Routes } from "react-router-dom";
+import "./App.css";
+import { Navbar } from "./Components/Navbar/Navbar";
+import { Movies } from "./Pages/Movies/Movies";
+import { Starred } from "./Pages/Starred/Starred";
+import { Watchlist } from "./Pages/Watchlist/Watchlist";
 
 function App() {
   return (
     <div className="App">
-     <h1>MCR</h1>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Movies />} />
+        <Route path="/starred" element={<Starred />} />
+        <Route path="/watchlist" element={<Watchlist />} />
+      </Routes>
     </div>
   );
 }
