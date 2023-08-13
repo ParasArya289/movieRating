@@ -1,4 +1,5 @@
-export const filterData = (data, genre, releaseYear, rating, searchQuery) => {
+export const filterData = (data, option) => {
+  const { genre, releaseYear, rating, searchQuery } = option;
   let arr = [...data];
   if (genre) {
     if (genre !== "all") {

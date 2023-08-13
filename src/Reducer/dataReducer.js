@@ -29,5 +29,15 @@ export const dataReducer = (state, action) => {
         ...state,
         watchlist: [...state.watchlist, action.payload],
       };
+    case "REMOVE_FROM_STARRED":
+      return {
+        ...state,
+        starred: state?.starred?.filter(({ id }) => id !== action.payload),
+      };
+    case "REMOVE_FROM_WATCHLIST":
+      return {
+        ...state,
+        watchlist: state?.watchlist?.filter(({ id }) => id !== action.payload),
+      };
   }
 };

@@ -9,13 +9,7 @@ export const Movies = () => {
     dataState: { movies },
     filters,
   } = useData();
-  const filteredArray = filterData(
-    movies,
-    filters?.genre,
-    filters?.releaseYear,
-    filters?.rating,
-    filters?.searchQuery
-  );
+  const filteredArray = filterData(movies, filters);
   return (
     <div className="movies">
       <Filterheader />
