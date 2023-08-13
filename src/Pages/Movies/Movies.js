@@ -13,6 +13,7 @@ export const Movies = () => {
   return (
     <div className="movies">
       <Filterheader />
+      {filteredArray.length <= 0 && <h4>No Movies</h4>}
       <div>
         {filteredArray?.map((movie) => (
           <MovieCard {...movie} />

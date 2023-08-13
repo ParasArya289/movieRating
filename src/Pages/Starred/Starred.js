@@ -11,6 +11,7 @@ export const Starred = () => {
   const filteredArray = filterData(starred, { searchQuery: filters?.searchQuery });
   return (
     <div className="movies">
+      {filteredArray.length <= 0 && <h4>No Movies</h4>}
       <div>
         {filteredArray?.map((movie) => (
           <MovieCard {...movie} />
