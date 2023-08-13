@@ -1,4 +1,4 @@
-import { createContext, useEffect, useReducer } from "react";
+import { createContext, useContext, useEffect, useReducer } from "react";
 import { dataReducer, initDataState } from "../Reducer/dataReducer";
 
 const dataContext = createContext();
@@ -15,12 +15,17 @@ export const DataContextProvider = ({ children }) => {
   }, []);
 
   useEffect(() => {
-    if (dataState !== initData) {
+    if (dataState !== initDataState) {
       const stringify = JSON.stringify(dataState);
       localStorage.setItem("state", stringify);
     }
   }, [dataState]);
-  
 
-  return <dataContext.Provider>{children}</dataContext.Provider>;
+  return (
+    <dataContext.Provider value={{ dataState, dispatchData }}>
+      {children}
+    </dataContext.Provider>
+  );
 };
+
+export const useData = () => useContext(dataContext);

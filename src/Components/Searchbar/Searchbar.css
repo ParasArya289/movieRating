@@ -1,0 +1,6 @@
+input[type="search"] {
+  padding: 0.7rem;
+  width: 20rem;
+  border-radius: 4px;
+  border: none;
+}
